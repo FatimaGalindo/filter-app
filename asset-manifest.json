@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/FatimaGalindo/filter-app/static/css/main.5f361e03.chunk.css",
-    "main.js": "/FatimaGalindo/filter-app/static/js/main.78028e54.chunk.js",
-    "main.js.map": "/FatimaGalindo/filter-app/static/js/main.78028e54.chunk.js.map",
-    "runtime-main.js": "/FatimaGalindo/filter-app/static/js/runtime-main.0c9024e6.js",
-    "runtime-main.js.map": "/FatimaGalindo/filter-app/static/js/runtime-main.0c9024e6.js.map",
-    "static/js/2.c551f184.chunk.js": "/FatimaGalindo/filter-app/static/js/2.c551f184.chunk.js",
-    "static/js/2.c551f184.chunk.js.map": "/FatimaGalindo/filter-app/static/js/2.c551f184.chunk.js.map",
-    "index.html": "/FatimaGalindo/filter-app/index.html",
-    "precache-manifest.c96edb53bff334ba0d54b5ab0b538f54.js": "/FatimaGalindo/filter-app/precache-manifest.c96edb53bff334ba0d54b5ab0b538f54.js",
-    "service-worker.js": "/FatimaGalindo/filter-app/service-worker.js",
-    "static/css/main.5f361e03.chunk.css.map": "/FatimaGalindo/filter-app/static/css/main.5f361e03.chunk.css.map",
-    "static/js/2.c551f184.chunk.js.LICENSE.txt": "/FatimaGalindo/filter-app/static/js/2.c551f184.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/FatimaGalindo/filter-app/static/media/logo.5d5d9eef.svg"
+    "main.css": "./static/css/main.5f361e03.chunk.css",
+    "main.js": "./static/js/main.bad6de23.chunk.js",
+    "main.js.map": "./static/js/main.bad6de23.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.84f5607a.js",
+    "runtime-main.js.map": "./static/js/runtime-main.84f5607a.js.map",
+    "static/js/2.c551f184.chunk.js": "./static/js/2.c551f184.chunk.js",
+    "static/js/2.c551f184.chunk.js.map": "./static/js/2.c551f184.chunk.js.map",
+    "index.html": "./index.html",
+    "precache-manifest.eed685be976f1596cf48023bfbbba63c.js": "./precache-manifest.eed685be976f1596cf48023bfbbba63c.js",
+    "service-worker.js": "./service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "./static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.c551f184.chunk.js.LICENSE.txt": "./static/js/2.c551f184.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "./static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0c9024e6.js",
+    "static/js/runtime-main.84f5607a.js",
     "static/js/2.c551f184.chunk.js",
     "static/css/main.5f361e03.chunk.css",
-    "static/js/main.78028e54.chunk.js"
+    "static/js/main.bad6de23.chunk.js"
   ]
 }
