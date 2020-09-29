@@ -14,7 +14,9 @@ export const Wrapper = styled.div`
   padding: 0px;
   box-sizing: border-box;
   color: white;
+  overflow:hidden;
   font-family: sans-serif;
 `
+
 
 

@@ -39,7 +39,7 @@ export const StepForm = styled.div`
   justify-content: center;
 `
 export const MatrizContainer = styled.div`
-  margin: 3em 1em;
+  margin: 1em 1em;
 `
 export const ButtonContainer = styled.div`
   display: flex;

@@ -28,7 +28,7 @@ export default React.memo(redity.connect(FiltroController.KEY)(() => {
         </StepContainer>
       </Paper>
       <Snackbar
-        anchorOrigin={{vertical: 'top', horizontal: 'center' }}
+        anchorOrigin={{vertical: 'bottom', horizontal: 'center' }}
         open={Controller.message_open}
         autoHideDuration={6000}
         onClose={()=>Controller.handleCloseMessage(false)}

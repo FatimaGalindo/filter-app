@@ -25,6 +25,7 @@ export default function Step1(){
                   margin="dense"
                   variant="outlined"
                   className='mr-2 ml-2'
+                  style={{width:'50px'}}
                   inputProps={{min: 0, style: { textAlign: 'center' }}} 
                   disabled
                   value={item}
@@ -38,7 +39,7 @@ export default function Step1(){
     }
   </MatrizContainer>
    {
-     Controller.filter_type==='media' &&
+     Controller.filter_type!=='mediana' &&
      <>
      <StepTitle >
       Máscara
@@ -58,6 +59,7 @@ export default function Step1(){
                       className='mr-2 ml-2'
                       inputProps={{min: 0, style: { textAlign: 'center' }}} 
                       disabled
+                      style={{width:'50px'}}
                       value={item}
                       onChange={(ev)=>Controller.handleChangeValue({row: x, column: y, value: ev.target.value})}
                   />
@@ -87,6 +89,7 @@ export default function Step1(){
                   variant="outlined"
                   inputProps={{min: 0, style: { textAlign: 'center' }}} 
                   className='mr-2 ml-2'
+                  style={{width:'50px'}}
                   disabled
                   value={item}
                   onChange={(ev)=>Controller.handleChangeValue({row: x, column: y, value: ev.target.value})}

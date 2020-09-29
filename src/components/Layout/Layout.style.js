@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const LayoutContainer = styled.div`
   width: 100%;
   min-height: 100vh;
+  overflow:hidden;
   background-color: #f6f6f6;
   display: flex;
   font-family: 'Heebo', sans-serif;

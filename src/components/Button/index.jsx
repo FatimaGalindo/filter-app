@@ -9,11 +9,11 @@ import Button from '@material-ui/core/Button';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main:'#4D4375'
+      main:'#E84545'
     }
     ,
     secondary:{
-      main:'#8674CC'
+      main:'#C90000'
     }
   },
 });

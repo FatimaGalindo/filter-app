@@ -11,11 +11,11 @@ const CssTextField = withStyles({
       color: '#6B6A63',
     },
     '& .MuiInput-underline:after': {
-      borderBottomColor: '#6B6A63',
+      borderBottomColor: '#A9A7B2',
     },
     '& .MuiOutlinedInput-root': {
       '& fieldset': {
-        borderColor: '#4D33BA',
+        borderColor: '#A9A7B2',
       },
       '&:hover fieldset': {
         borderColor: '#6B6A63',

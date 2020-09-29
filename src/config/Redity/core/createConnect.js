@@ -20,7 +20,9 @@ export default function createConnect (registersOfConnections, hideChildrens, te
 
     React.useEffect(() => {
       const dataRegister = saveRegister(forceRender, propsHashed, optionControlConnect)
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       Component = dataRegister.Component
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       nextProps = dataRegister.nextProps
       return deleteRegister
     }, [])

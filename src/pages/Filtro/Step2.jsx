@@ -1,20 +1,21 @@
 import React from 'react'
-import {StepTitle,StepForm}  from './Filtro.style'
+import {StepTitle,StepForm,MatrizContainer}  from './Filtro.style'
 import FiltroController from './Controller/Filtro.controller'
 import { Alert, AlertTitle } from '@material-ui/lab';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
-//import Checkbox from '@material-ui/core/Checkbox';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import InputField from './../../components/InputField';
 import Button from './../../components/Button';
+import TextField from '@material-ui/core/TextField';
+import {RadioGroupLaplaciano,RadioGroupSobel} from './Controller/Initialize.controller'
+import Grid from '@material-ui/core/Grid';
 
 export default function Step1(){
   const Controller = FiltroController
-
   return(
   <>
     <StepTitle >
@@ -39,14 +40,12 @@ export default function Step1(){
           value="laplaciano"
           control={<Radio color="primary" />}
           label="Laplaciano"
-          disabled
           labelPlacement="end"
         />
          <FormControlLabel
           value="sobel"
           control={<Radio color="secondary" />}
           label="Sobel"
-          disabled
           labelPlacement="end"
         />
       </RadioGroup>
@@ -78,16 +77,6 @@ export default function Step1(){
               Aplicar filtro de la media
           </Button>
         </StepForm>
-        <StepForm>
-          {
-            /* 
-            <FormControlLabel
-              control={<Checkbox checked={true} onChange={()=>{}} name="checked" />}
-              label="Secondary"
-            />
-            */
-          }
-        </StepForm>
       </FormGroup >
     }
      {
@@ -109,6 +98,121 @@ export default function Step1(){
           Aplicar filtro de la mediana
       </Button>
     </StepForm>
+    }
+    {
+      Controller.filter_type==='laplaciano' &&
+      <StepForm className='mt-3'>
+       <Grid container spacing={2}>
+        <label className='mt-3' >Seleccione la máscara:</label>
+        <RadioGroup row aria-label="position" name="position" value={Controller.filter_type_mask} className='mt-2' onChange={Controller.handleChangeMaskType}>
+          {
+            RadioGroupLaplaciano.map(item=>{
+              return(
+                <Grid item xs={12} md={6}> 
+                <div style={{display:'flex', justifyContent:'center'}}   >
+                <FormControlLabel
+                    value={item.value}
+                    control={<Radio color="primary" />}
+                    label=""
+                    labelPlacement="end"
+                />
+                <MatrizContainer>
+                  {
+                    item.mask.map((item,x)=>{
+                      return(
+                        <div style={{display:'flex', justifyContent:'center'}} key={x}  >
+                          {item.map((item,y)=>{
+                            return(
+                              <TextField
+                                key={y}
+                                id={'input-'+ x +'-'+ y}
+                                margin="dense"
+                                variant="outlined"
+                                className='mr-2 ml-2'
+                                inputProps={{min: 0, style: { textAlign: 'center' }}} 
+                                disabled
+                                style={{width:'50px'}}
+                                value={item}
+                                onChange={(ev)=>{}}
+                            />
+                            )
+                          })}
+                        </div>
+                      )
+                    })
+                  }
+                </MatrizContainer>
+              </div>
+             
+              </Grid>
+              )
+            })
+          }
+        </RadioGroup>
+        <Grid item xs={12} container justify="flex-end" > 
+              <Button color="primary" onClick={Controller.handleClickResultLaplacianoSobel} >
+                Aplicar filtro laplaciano
+             </Button>
+        </Grid>
+        </Grid>
+      </StepForm>
+    }
+    {
+      Controller.filter_type==='sobel' &&
+      <StepForm className='mt-3'>
+       <Grid container spacing={2}>
+        <label className='mt-3' >Seleccione la máscara:</label>
+        <RadioGroup row aria-label="position" name="position" value={Controller.filter_type_mask} className='mt-2' onChange={Controller.handleChangeMaskType}>
+          {
+            RadioGroupSobel.map(item=>{
+              return(
+                <Grid item xs={12} md={6}> 
+                <div style={{display:'flex', justifyContent:'center'}}   >
+                <FormControlLabel
+                    value={item.value}
+                    control={<Radio color="primary" />}
+                    label=""
+                    labelPlacement="end"
+                />
+                <MatrizContainer>
+                  {
+                    item.mask.map((item,x)=>{
+                      return(
+                        <div style={{display:'flex', justifyContent:'center'}} key={x}  >
+                          {item.map((item,y)=>{
+                            return(
+                              <TextField
+                                key={y}
+                                id={'input-'+ x +'-'+ y}
+                                margin="dense"
+                                variant="outlined"
+                                className='mr-2 ml-2'
+                                inputProps={{min: 0, style: { textAlign: 'center' }}} 
+                                disabled
+                                style={{width:'50px'}}
+                                value={item}
+                                onChange={(ev)=>{}}
+                            />
+                            )
+                          })}
+                        </div>
+                      )
+                    })
+                  }
+                </MatrizContainer>
+              </div>
+              </Grid>
+              )
+            })
+          }
+        </RadioGroup>
+        <Grid item xs={12} container justify="flex-end" > 
+          <Button color="primary" onClick={Controller.handleClickResultLaplacianoSobel} >
+            Aplicar filtro sobel
+          </Button>
+        </Grid>
+        </Grid>
+      </StepForm>
     }
   </>
   )

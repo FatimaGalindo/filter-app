@@ -14,7 +14,7 @@ export default function Step1(){
     <StepTitle >
        Ingresa las dimensiones
     </StepTitle>
-
+    
     <StepForm className='mt-3 mb-3'>
       <InputField
         label="Filas"
@@ -45,6 +45,9 @@ export default function Step1(){
     {
       Controller.generated &&
       <>
+      <Alert severity="warning"className='mt-3'>
+          La imagen es de 3 bits. Valores permitidos del 0 al 7
+      </Alert>
         <MatrizContainer>
         {
           Controller.matriz.map((item,x)=>{
