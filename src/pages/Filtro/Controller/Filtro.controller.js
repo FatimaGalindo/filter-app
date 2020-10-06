@@ -19,8 +19,11 @@ export function FiltroController () {
   this.matriz=[]
   this.new_matriz=[]
   this.mask_matriz=[]
+  this.rescale_available=false
+  this.new_matriz_rescale=false
 
-    this.handleChangeNextStep = () => {
+
+  this.handleChangeNextStep = () => {
     this.step = this.step+1
     redity.render(this.KEY)
   }
@@ -191,8 +194,49 @@ export function FiltroController () {
       newMatriz.push(row)
     }
     this.new_matriz= newMatriz
+    const {min,max}=this.calculateMinMax(newMatriz)
+    if(min < 0 || max > 7){
+      this.rescale_available=true
+    }
     this.step=3
     redity.render(this.KEY)
+  }
+  this.calculateMinMax= (matrix) => {  
+    let min=matrix[0][0]
+    let max=matrix[0][0]
+    for (let x = 0; x < this.dimensions.rows; x++) {
+      for (let y = 0; y < this.dimensions.columns; y++) {
+        if(min>=matrix[x][y]){
+          min=matrix[x][y]
+        }
+        if(max<=matrix[x][y]){
+          max=matrix[x][y]
+        }
+      }
+    }
+    return {min,max}
+  }
+
+  this.handleRescale=()=>{
+    const {min,max}=this.calculateMinMax(this.new_matriz)
+    this.rescale(min,max)
+    redity.render(this.KEY)
+  }
+
+  this.rescale= (min,max) => {  
+    const m= 7/(max-min)
+    const b=0-m*min
+    const newMatriz =[]
+    for (let x = 0; x < this.dimensions.rows; x++) {
+      let row=[]
+      for (let y = 0; y < this.dimensions.columns; y++) {
+        const a= parseFloat(m*(this.new_matriz[x][y]).toFixed(2))
+        const c= parseFloat(b.toFixed(2))
+        row.push(Math.round(a+c))
+      }
+      newMatriz.push(row)
+    }
+    this.new_matriz_rescale=newMatriz
   }
 
   this.calculateLaplacianoSobel = (x,y) => {
@@ -262,6 +306,8 @@ export function FiltroController () {
     this.matriz=[]
     this.new_matriz=[]
     this.mask_matriz=[]
+    this.new_matriz_rescale=false
+    this.rescale_available=false
     redity.render(this.KEY)
   }
 }

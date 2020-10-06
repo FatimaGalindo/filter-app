@@ -72,38 +72,80 @@ export default function Step1(){
       </MatrizContainer>
      </>
    }
-  <StepTitle >
-      Imagen nueva
-   </StepTitle>
-  <MatrizContainer>
+   {
+     !Controller.new_matriz_rescale && <>
+      <StepTitle >
+        Imagen nueva
+      </StepTitle>
+      <MatrizContainer>
+        {
+          Controller.new_matriz.map((item,x)=>{
+            return(
+              <div style={{display:'flex', justifyContent:'center'}} key={x}  >
+                {item.map((item,y)=>{
+                  return(
+                    <TextField
+                      key={y}
+                      id={'input-'+ x +'-'+ y}
+                      margin="dense"
+                      variant="outlined"
+                      inputProps={{min: 0, style: { textAlign: 'center' }}} 
+                      className='mr-2 ml-2'
+                      style={{width:'50px'}}
+                      disabled
+                      value={item}
+                      onChange={(ev)=>Controller.handleChangeValue({row: x, column: y, value: ev.target.value})}
+                  />
+                  )
+                })}
+              </div>
+            )
+          })
+        }
+      </MatrizContainer>
+     </>
+   }
+   {
+     Controller.new_matriz_rescale && <>
+      <StepTitle >
+        Imagen reescalada
+      </StepTitle>
+      <MatrizContainer>
+        {
+          Controller.new_matriz_rescale.map((item,x)=>{
+            return(
+              <div style={{display:'flex', justifyContent:'center'}} key={x}  >
+                {item.map((item,y)=>{
+                  return(
+                    <TextField
+                      key={y}
+                      id={'input-'+ x +'-'+ y}
+                      margin="dense"
+                      variant="outlined"
+                      inputProps={{min: 0, style: { textAlign: 'center' }}} 
+                      className='mr-2 ml-2'
+                      style={{width:'50px'}}
+                      disabled
+                      value={item}
+                      onChange={(ev)=>Controller.handleChangeValue({row: x, column: y, value: ev.target.value})}
+                  />
+                  )
+                })}
+              </div>
+            )
+          })
+        }
+      </MatrizContainer>
+     </>
+   }
+    <ButtonContainer className='mt-3'>
     {
-      Controller.new_matriz.map((item,x)=>{
-        return(
-          <div style={{display:'flex', justifyContent:'center'}} key={x}  >
-            {item.map((item,y)=>{
-              return(
-                <TextField
-                  key={y}
-                  id={'input-'+ x +'-'+ y}
-                  margin="dense"
-                  variant="outlined"
-                  inputProps={{min: 0, style: { textAlign: 'center' }}} 
-                  className='mr-2 ml-2'
-                  style={{width:'50px'}}
-                  disabled
-                  value={item}
-                  onChange={(ev)=>Controller.handleChangeValue({row: x, column: y, value: ev.target.value})}
-              />
-              )
-            })}
-          </div>
-        )
-      })
+      Controller.rescale_available &&  <Button color="secondary" className='mr-3' onClick={Controller.handleRescale}>
+        Reescalar
+      </Button>
     }
-  </MatrizContainer>
-  <ButtonContainer className='mt-3'>
     <Button color="secondary" onClick={Controller.restart}>
-        Nuevo
+      Nuevo
     </Button>
   </ButtonContainer>
   </>
